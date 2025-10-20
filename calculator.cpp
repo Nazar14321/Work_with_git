@@ -1,20 +1,21 @@
 #include "calculator.h"
 
-int Calculator::Add (double a, double b)
-{
-<<<<<<< HEAD
-	return a + b + 0.5;
-=======
-	return a + b;
->>>>>>> 93e6b14 (formatting: use tabs instead of spaces)
+static inline int round_to_int(double x) {
+
+    return static_cast<int>(x + (x >= 0 ? 0.5 : -0.5));
 }
 
-int Calculator::Sub (double a, double b)
+int Calculator::Add(double a, double b)
 {
-	return Add (a, -b);
+    return round_to_int(a + b);
 }
 
-int Calculator::Mul (double a, double b)
+int Calculator::Sub(double a, double b)
 {
-    return a * b + 0.5;
+    return round_to_int(a - b);
+}
+
+int Calculator::Mul(double a, double b)
+{
+    return round_to_int(a * b);
 }
